@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    //Add value
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    } 
+    addOptiLanguage("Golang")
+
+    //Edit value
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "Mojo"; 
+    const newli = document.createElement("li")
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+    /*this is not optimised way b'coz when if we use innerhtml or textContent it will traverse the tree and it will take load here it is 2-3 in the list but it will affect when we have 1000 or 1 lakh in the list.So it is upto the senior what they want  */
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>Java</li>'
+    //this is one more way to edit
+
+    //Remove
+
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove()
+
+</script>
+</html>
